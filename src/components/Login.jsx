@@ -21,13 +21,11 @@ const Login = () => {
     const message = checkValidData(
       email.current.value,
       password.current.value,
-      fullName.current.value
+      fullName.current?.value
     );
     setErrorMessage(message);
 
-    if (message === null) {
-      //sign up or sign in the user
-    }
+ if (message) return;
 
     if (!isSignInForm) {
       createUserWithEmailAndPassword(
@@ -107,10 +105,10 @@ const Login = () => {
           placeholder="Password"
           className="p-4 my-4 w-full  bg-gray-700"
         />
-        <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
+        <p className="text-red-500 font-bold text-lg py-2 ">{errorMessage}</p>
         <button
           type="submit"
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
+          className="p-4 my-6 bg-red-700 w-full rounded-lg hover:cursor-pointer"
           onClick={handleButtonClick}
         >
           Sign In
