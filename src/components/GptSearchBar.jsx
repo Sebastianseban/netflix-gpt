@@ -1,11 +1,13 @@
-import openai from "../utils/openai";
-import { useSelector } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
 import { useRef } from "react";
 import { API_OPTIONS } from "../utils/constants";
 import { geminiModel } from "../utils/googleai";
+import { addGptMovieResult } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
+  const dispatch = useDispatch()
   const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
 
@@ -27,11 +29,27 @@ const GptSearchBar = () => {
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
       searchText.current.value +
       ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
-    const result = await geminiModel.generateContent(gptQuery);
-    const response = await result.response;
-    const text = await response.text();
+   try {
+     const result = await geminiModel.generateContent(gptQuery);
+     const response = await result.response;
+     const text = await response.text();
+ 
+     const movies = text.split(",")
+     .map((title) => title.trim())
+     .filter((title) => title.length > 0 );
+ 
+     const allMovies = await Promise.all(movies.map(fetchMovie))
+ 
+    
 
-    console.log(text); // Use this result
+     dispatch(addGptMovieResult({movieNames : movies,movieResults : allMovies}))
+     console.log("Fetched Movies:", allMovies);
+
+   } catch (error) {
+         console.error("Error fetching GPT movies:", error);
+
+   }
+  
   };
 
   return (
