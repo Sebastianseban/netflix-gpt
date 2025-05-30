@@ -1,12 +1,29 @@
-# React + Vite
+# Netflix-GPT 🎬🤖
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A smart movie recommendation app powered by **Google Gemini AI** and **TMDB API**. Search for movies in natural language, and get AI-curated suggestions with real-time TMDB data. Built with React 19, Redux Toolkit, TailwindCSS, and Vite.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🧠 GPT-style movie recommendations using Google Gemini AI
+- 🎥 TMDB API integration for real movie data (posters, titles, etc.)
+- 🔤 Multi-language UI support (via Redux)
+- 📱 Responsive and clean Netflix-like UI
+- ⚡ Fast development powered by Vite
+- 🔁 Custom React hooks for reusable API logic
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Tech Stack
+
+| Technology     | Description                    |
+|----------------|--------------------------------|
+| React 19       | Frontend library               |
+| Vite           | Build and dev server           |
+| Redux Toolkit  | State management               |
+| Tailwind CSS   | Utility-first CSS framework    |
+| Google Gemini  | AI-based movie recommendations |
+| TMDB API       | Real-time movie data           |
+| Firebase       | (Optional) backend integration |
+| OpenAI SDK     | (Optional) fallback AI support |
