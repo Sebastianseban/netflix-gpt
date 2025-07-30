@@ -4,9 +4,10 @@ import usePopularMovies from "../hooks/usePopularMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import GptSerach from "./GptSearach";
 import Header from "./Header";
-import { MainContainer } from "./MainContainer";
-import SecondaryContainer from "./secondaryContainer";
-import GptSearach from "./GptSearach";
+import  MainContainer  from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer"
+
+
 
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSerach);
@@ -22,7 +23,7 @@ const Browse = () => {
       ) : (
         <>
           <MainContainer />
-          <SecondaryContainer />
+          <SecondaryContainer/>
         </>
       )}
     </div>
